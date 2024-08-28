@@ -13,6 +13,7 @@ async function hashPassword(password){
 }
 
 const CreateProfile = async (req,res) => {
+
     try{
         let { firstName, lastName,email,dob,phoneNumber,password}=req.body;
         password= await hashPassword(password);
