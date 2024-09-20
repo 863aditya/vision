@@ -11,11 +11,11 @@ const userProfileSchema = new mongoose.Schema({
         required: true
     },
     PhoneNumber: {
-        type: [String], // Array of strings for multiple phone numbers
+        type: String, // Array of strings for multiple phone numbers
         required: true
     },
     Email: {
-        type: [String], // Array of strings for multiple emails
+        type: String, // Array of strings for multiple emails
         required: true
     },
     Role: {

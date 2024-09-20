@@ -1,20 +1,26 @@
 const express = require('express')
-const { CreateProfile, GetAllProfiles, GetOneProfile} = require('../controllers/profileController')
+const { CreateProfile, GetAllProfiles, GetOneProfile, Login, authenticateToken} = require('../controllers/profileController')
 const { createUser, getAllUsers } = require('../controllers/userController');
-const employeeDetailsController = require('./controllers/employeeDetailsController');
-const vehicleDetailsController = require('./controllers/vehicleDetailsController');
-const itemDetailsController = require('./controllers/itemDetailsController');
-const itemsController = require('./controllers/itemsController');
-const boqDetailsController = require('./controllers/boqDetailsController');
-const publishingAuthController = require('./controllers/publishingAuthController');
-const leadController = require('./controllers/leadController');
-const userProfileController = require('./controllers/userProfileController');
+const employeeDetailsController = require('../controllers/employeeDetailsController');
+const vehicleDetailsController = require('../controllers/vehicleDetailsController');
+const itemDetailsController = require('../controllers/itemDetailsController');
+const itemsController = require('../controllers/itemsController');
+const boqDetailsController = require('../controllers/boqDetailsController');
+const publishingAuthController = require('../controllers/publishingAuthController');
+const leadController = require('../controllers/leadController');
+const userProfileController = require('../controllers/userProfileController');
+const credentialsController=require('../controllers/credentialsController');
+const middleware= require('../middlewares/auth')
+const multer = require('multer');
 
 const router = express.Router();
+const storage = multer.memoryStorage(); // Store files in memory
+const upload = multer({ storage: storage });
 
 router.post('/profile',CreateProfile); 
 router.get('/profile',GetAllProfiles);
 router.get('/profile/:email',GetOneProfile);
+router.post('/login',Login);
 // Route for creating a new user
 router.post('/users', createUser);
 
@@ -22,7 +28,7 @@ router.post('/users', createUser);
 router.get('/users', getAllUsers);
 
 // Employee Details routes
-router.post('/employee-details', employeeDetailsController.createEmployeeDetails);
+router.post('/employee-details', upload.fields([{ name: 'DlScan' }, { name: 'DlScan2' }]), employeeDetailsController.createEmployeeDetails);
 router.get('/employee-details/:id', employeeDetailsController.getEmployeeDetails);
 router.put('/employee-details/:id', employeeDetailsController.updateEmployeeDetails);
 router.delete('/employee-details/:id', employeeDetailsController.deleteEmployeeDetails);
@@ -68,6 +74,11 @@ router.post('/user-profile', userProfileController.createUserProfile);
 router.get('/user-profile/:id', userProfileController.getUserProfile);
 router.put('/user-profile/:id', userProfileController.updateUserProfile);
 router.delete('/user-profile/:id', userProfileController.deleteUserProfile);
+
+
+//credentials
+router.post('/credentials',credentialsController.CreateCredentials);
+router.post('login',credentialsController.Login)
 
 module.exports = router;
 

@@ -11,7 +11,11 @@ const BankEnum = Object.freeze({
 });
 
 const RolesEnum = Object.freeze({
-
+    BoardMembers:"Board Member",
+    PlanningTeam:"PlanningTeam",
+    FinanceTeam:"FinanceTeam",
+    ProjectManager:"ProjectManager",
+    Supervisor:"Supervisor"
 });
 
 module.exports = {

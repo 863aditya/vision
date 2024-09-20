@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const employeeDetailsSchema = new mongoose.Schema({
-    EmployeeId: {
-        type: String,
-        required: true
-    },
     NameOfEmployee: {
         type: String,
         required: true
@@ -73,7 +69,7 @@ const employeeDetailsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    IfsCode: {
+    IfscCode: {
         type: String,
         required: true
     },

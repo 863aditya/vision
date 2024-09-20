@@ -3,11 +3,33 @@ const EmployeeDetails = require('../models/EmployeeDetails');
 // Create
 exports.createEmployeeDetails = async (req, res) => {
     try {
-        const employee = new EmployeeDetails(req.body);
+        const employee = new EmployeeDetails({
+            NameOfEmployee: req.body.NameOfEmployee,
+            FathersName: req.body.FathersName,
+            FathersContactDetails: req.body.FathersContactDetails,
+            SpouseName: req.body.SpouseName,
+            SpouseContactDetails: req.body.SpouseContactDetails,
+            DateOfBirth: req.body.DateOfBirth,
+            PresentAddress: req.body.PresentAddress,
+            PermanentAddress: req.body.PermanentAddress,
+            ContactDetails: req.body.ContactDetails,
+            AadhaarDetails: req.body.AadhaarDetails,
+            PanDetails: req.body.PanDetails,
+            DrivingLicenseNo: req.body.DrivingLicenseNo,
+            DlValidityUpto: req.body.DlValidityUpto,
+            DlScan: req.files['DlScan'][0].buffer,  // Store file buffer
+            DlScan2: req.files['DlScan2'][0].buffer, // Store file buffer
+            BankAccountNo: req.body.BankAccountNo,
+            NameOfBankAndBranch: req.body.NameOfBankAndBranch,
+            IfscCode: req.body.IfscCode,
+            PfNo: req.body.PfNo,
+            EsiCode: req.body.EsiCode
+        });
+
         await employee.save();
-        res.status(201).json(employee);
+        res.status(201).send(employee);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).send("Error: " + error.message);
     }
 };
 
