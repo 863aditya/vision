@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 router.post('/profile',CreateProfile); 
 router.get('/profile',GetAllProfiles);
 router.get('/profile/:email',GetOneProfile);
-router.post('/login',Login);
+// router.post('/login',Login);
 // Route for creating a new user
 router.post('/users', createUser);
 
@@ -28,7 +28,7 @@ router.post('/users', createUser);
 router.get('/users', getAllUsers);
 
 // Employee Details routes
-router.post('/employee-details', upload.fields([{ name: 'DlScan' }, { name: 'DlScan2' }]), employeeDetailsController.createEmployeeDetails);
+router.post('/employee-details',  upload.fields([{ name: 'DlScan' }, { name: 'DlScan2' }]), employeeDetailsController.createEmployeeDetails);
 router.get('/employee-details/:id', employeeDetailsController.getEmployeeDetails);
 router.put('/employee-details/:id', employeeDetailsController.updateEmployeeDetails);
 router.delete('/employee-details/:id', employeeDetailsController.deleteEmployeeDetails);
@@ -71,14 +71,14 @@ router.delete('/lead/:id', leadController.deleteLead);
 
 // UserProfile routes
 router.post('/user-profile', userProfileController.createUserProfile);
-router.get('/user-profile/:id', userProfileController.getUserProfile);
+router.get('/user-profile/:id',middleware.authenticateToken,userProfileController.getUserProfile);
 router.put('/user-profile/:id', userProfileController.updateUserProfile);
 router.delete('/user-profile/:id', userProfileController.deleteUserProfile);
 
 
 //credentials
 router.post('/credentials',credentialsController.CreateCredentials);
-router.post('login',credentialsController.Login)
+router.post('/login',credentialsController.Login)
 
 module.exports = router;
 

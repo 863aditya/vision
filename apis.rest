@@ -1,0 +1,4 @@
+### Get User Profile
+GET http://localhost:3000/api/user-profile/66edc2a924ae308d763c3dd0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiQm9hcmQgTWVtYmVyIiwiaWF0IjoxNzI2ODU4NzA0LCJleHAiOjE3MjY4NTg3MTR9.l9uxDOxQNWiosoqxRx3Yr4m4pt-QSijjlofGYPdprCM
+Content-Type: application/json

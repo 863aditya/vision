@@ -19,11 +19,13 @@ async function hashPassword(password){
 
 const CreateCredentials = async (req,res) =>{
     try{
-        let {email,password}= req.body;
-        password= await hashPassword(password);
-        const newCredential= new Credentials(email,password);
+        // let {Email,Password}= req.body;
+        let Email=req.body.Email;
+        let Password=req.body.Password;
+        Password= await hashPassword(Password);
+        const newCredential= new Credentials({Email,Password});
         await newCredential.save();
-        return  res.status(201).json({email:newCredential.email});
+        return  res.status(201).json({Email:newCredential.email});
     }
     catch(err){
         res.status(400).json({error:err.message});
@@ -49,17 +51,20 @@ async function verifyPassword(plainPassword, hashedPassword) {
 const Login = async (req,res)=>{
     
     try{
-        let {email,password}=req.body;
-        let userFromDb=await Credentials.findOne({email:email});
+        // let {Email,Password}=req.body;
+        let Email=req.body.Email;
+        let Password=req.body.Password;
+        let userFromDb=await Credentials.findOne({Email:Email});
         if(!userFromDb){
             return res.status(400).json({message:"no user found"});
         }
-        let check=verifyPassword(password,userFromDb.password);
+        let check=verifyPassword(Password,userFromDb.password);
         if(!check){
             return res.status(400).json({message:"wrong password"});
         }
-        let userProfileFromDb= await UserProfile.findOne({email:email})
-        let payLoad=new PayloadJwt(email,userProfileFromDb.Role);
+        let userProfileFromDb= await UserProfile.findOne({Email:Email});
+        let role=userProfileFromDb.Role;
+        let payLoad={Email,role};
         const accessToken = jwt.sign(payLoad,process.env.ACCESS_TOKEN_SECRET, {expiresIn:'10s'});
         return res.status(200).json({accessToken:accessToken})
     }
