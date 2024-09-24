@@ -36,14 +36,15 @@ const CreateCredentials = async (req,res) =>{
 async function verifyPassword(plainPassword, hashedPassword) {
     try {
         if (await argon2.verify(hashedPassword, plainPassword)) {
-            // console.log("Password is correct");
+            console.log("Password is correct");
             return true;
         } else {
-            // console.log("Password is incorrect");
+            console.log("Password is incorrect");
             return false;
         }
     } catch (err) {
         console.error(err);
+        return false;
     }
 }
 
@@ -54,11 +55,14 @@ const Login = async (req,res)=>{
         // let {Email,Password}=req.body;
         let Email=req.body.Email;
         let Password=req.body.Password;
+        console.log(Password);
         let userFromDb=await Credentials.findOne({Email:Email});
         if(!userFromDb){
             return res.status(400).json({message:"no user found"});
         }
-        let check=verifyPassword(Password,userFromDb.password);
+        // console.log(userFromDb.)
+        let check=await verifyPassword(Password,userFromDb.Password);
+        console.log(check);
         if(!check){
             return res.status(400).json({message:"wrong password"});
         }
