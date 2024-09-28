@@ -53,6 +53,7 @@ const Login = async (req,res)=>{
     
     try{
         // let {Email,Password}=req.body;
+        console.log("here in login");
         let Email=req.body.Email;
         let Password=req.body.Password;
         console.log(Password);
@@ -69,7 +70,7 @@ const Login = async (req,res)=>{
         let userProfileFromDb= await UserProfile.findOne({Email:Email});
         let role=userProfileFromDb.Role;
         let payLoad={Email,role};
-        const accessToken = jwt.sign(payLoad,process.env.ACCESS_TOKEN_SECRET, {expiresIn:'10s'});
+        const accessToken = jwt.sign(payLoad,process.env.ACCESS_TOKEN_SECRET, {expiresIn:'10m'});
         return res.status(200).json({accessToken:accessToken})
     }
     catch(err){

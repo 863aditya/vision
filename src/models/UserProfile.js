@@ -20,7 +20,6 @@ const userProfileSchema = new mongoose.Schema({
     },
     Role: {
         type: String,
-        enum: RolesEnum, // Replace with actual roles
         required: true
     },
     EmployeeObjectId: {

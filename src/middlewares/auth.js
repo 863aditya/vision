@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken')
 
 function authenticateToken(req,res,next){
+    console.log("here in middleware");
     const authHeader=req.headers['authorization'];
     const token= authHeader && authHeader.split(' ')[1];
+    console.log(token);
     if(token == null){
         res.status(401);
         return;

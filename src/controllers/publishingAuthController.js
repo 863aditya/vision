@@ -22,6 +22,16 @@ exports.getPublishingAuth = async (req, res) => {
     }
 };
 
+exports.getAllPublishingAuth = async (req,res) =>{
+    try{
+        const pubAuth = await PublishingAuth.find({});
+        res.status(200).json(pubAuth);
+    }
+    catch(err){
+        res.status(400).json({message:err.message});
+    }
+};
+
 // Update
 exports.updatePublishingAuth = async (req, res) => {
     try {

@@ -60,6 +60,7 @@ router.delete('/boq-details/:id', boqDetailsController.deleteBoqDetails);
 // PublishingAuth routes
 router.post('/publishing-auth', publishingAuthController.createPublishingAuth);
 router.get('/publishing-auth/:id', publishingAuthController.getPublishingAuth);
+router.get('/publishing-auth', publishingAuthController.getAllPublishingAuth);
 router.put('/publishing-auth/:id', publishingAuthController.updatePublishingAuth);
 router.delete('/publishing-auth/:id', publishingAuthController.deletePublishingAuth);
 

@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const employeeDetailsSchema = new mongoose.Schema({
-    NameOfEmployee: {
+    FirstName: {
+        type: String,
+        required: true
+    },
+    LastName: {
         type: String,
         required: true
     },
@@ -55,11 +59,11 @@ const employeeDetailsSchema = new mongoose.Schema({
     },
     DlScan: {
         type: Buffer, // To store file data for DL Scan 1
-        required: true
+        required: false
     },
     DlScan2: {
         type: Buffer, // To store file data for DL Scan 2
-        required: true
+        required: false
     },
     BankAccountNo: {
         type: String,

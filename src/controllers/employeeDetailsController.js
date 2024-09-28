@@ -2,9 +2,12 @@ const EmployeeDetails = require('../models/EmployeeDetails');
 
 // Create
 exports.createEmployeeDetails = async (req, res) => {
+    console.log("here");
     try {
         const employee = new EmployeeDetails({
-            NameOfEmployee: req.body.NameOfEmployee,
+            // NameOfEmployee: req.body.NameOfEmployee,
+            FirstName: req.body.FirstName,
+            LastName: req.body.LastName,
             FathersName: req.body.FathersName,
             FathersContactDetails: req.body.FathersContactDetails,
             SpouseName: req.body.SpouseName,
@@ -17,8 +20,8 @@ exports.createEmployeeDetails = async (req, res) => {
             PanDetails: req.body.PanDetails,
             DrivingLicenseNo: req.body.DrivingLicenseNo,
             DlValidityUpto: req.body.DlValidityUpto,
-            DlScan: req.files['DlScan'][0].buffer,  // Store file buffer
-            DlScan2: req.files['DlScan2'][0].buffer, // Store file buffer
+            DlScan: null,  // Store file buffer
+            DlScan2: null, // Store file buffer
             BankAccountNo: req.body.BankAccountNo,
             NameOfBankAndBranch: req.body.NameOfBankAndBranch,
             IfscCode: req.body.IfscCode,
@@ -29,6 +32,7 @@ exports.createEmployeeDetails = async (req, res) => {
         await employee.save();
         res.status(201).send(employee);
     } catch (error) {
+        console.log(error.message);
         res.status(400).send("Error: " + error.message);
     }
 };

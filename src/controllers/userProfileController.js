@@ -7,6 +7,7 @@ exports.createUserProfile = async (req, res) => {
         await userProfile.save();
         res.status(201).json(userProfile);
     } catch (error) {
+        console.log(error.message);
         res.status(400).json({ message: error.message });
     }
 };
@@ -14,6 +15,7 @@ exports.createUserProfile = async (req, res) => {
 // Read
 exports.getUserProfile = async (req, res) => {
     try {
+        console.log("in user profile get page");
         const userProfile = await UserProfile.findById(req.params.id);
         if (!userProfile) return res.status(404).json({ message: 'UserProfile not found' });
         res.status(200).json(userProfile);

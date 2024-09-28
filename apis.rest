@@ -1,6 +1,6 @@
 ### Get User Profile
 GET http://localhost:3000/api/user-profile/66edc2a924ae308d763c3dd0
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiQm9hcmQgTWVtYmVyIiwiaWF0IjoxNzI3MTY3Mjg2LCJleHAiOjE3MjcxNjcyOTZ9.SJKKHiTqxFdrCTuX9OLgKNM4ypa4NTKN97fHGYciPCg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiQm9hcmQgTWVtYmVyIiwiaWF0IjoxNzI3MjA3OTYzLCJleHAiOjE3MjcyMDg1NjN9.MRa1MeSB-9QE9L0Q_kRRV3TdImdcxdGlcGxwBTZG3Bc
 Content-Type: application/json
 
 
@@ -13,3 +13,20 @@ Content-Type: application/json
     "Email":"johndoe@example.com",
     "Password":"johndoe@example.com"
 }
+
+###
+GET http://localhost:3000/api/profile
+
+###
+POST http://localhost:3000/api/publishing-auth
+Content-Type: application/json
+
+{
+    "Nickname": "TechBooks",
+    "Location": "San Francisco, USA",
+    "Emails": ["sales@techbooks.com", "tech@techbooks.com", "contact@techbooks.com"],
+    "PhoneNumbers": ["+1-415-555-1234", "+1-415-555-5678"]
+}
+
+###
+GET http://localhost:3000/api/publishing-auth
