@@ -12,6 +12,19 @@ exports.createUserProfile = async (req, res) => {
     }
 };
 
+exports.getAllUserProfiles = async (req,res) =>{
+    console.log("here in getallUserProfiles");
+    try{
+        
+        const response=await UserProfile.find({});
+        res.status(200).json(response);
+    }
+    catch(err){
+        console.log(err.message);
+        res.status(400).json({message:error.message});
+    }
+}
+
 // Read
 exports.getUserProfile = async (req, res) => {
     try {

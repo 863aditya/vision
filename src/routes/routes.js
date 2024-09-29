@@ -72,6 +72,7 @@ router.delete('/lead/:id', leadController.deleteLead);
 
 // UserProfile routes
 router.post('/user-profile', userProfileController.createUserProfile);
+router.get('/user-profile',middleware.authenticateToken,userProfileController.getAllUserProfiles);
 router.get('/user-profile/:id',middleware.authenticateToken,userProfileController.getUserProfile);
 router.put('/user-profile/:id', userProfileController.updateUserProfile);
 router.delete('/user-profile/:id', userProfileController.deleteUserProfile);
