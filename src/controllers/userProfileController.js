@@ -1,5 +1,5 @@
 const UserProfile = require('../models/UserProfile');
-
+const mongoose =require('mongoose')
 // Create
 exports.createUserProfile = async (req, res) => {
     try {
@@ -55,6 +55,23 @@ exports.deleteUserProfile = async (req, res) => {
         if (!userProfile) return res.status(404).json({ message: 'UserProfile not found' });
         res.status(200).json({ message: 'UserProfile deleted successfully' });
     } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+exports.getUserProfileIdByEmpId = async(req,res) => {
+    try{
+        console.log("here in empid");
+        console.log(req.params.id);
+        const oid= new mongoose.Types.ObjectId(req.params.id);
+        console.log(oid);
+        const userProfile =  await UserProfile.findOne({EmployeeObjectId:oid
+        });
+        if(!userProfile)return res.status(404).json({ message: 'UserProfile not found' });
+        res.status(200).json({id:userProfile._id});
+    }
+    catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
