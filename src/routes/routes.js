@@ -77,7 +77,7 @@ router.get('/user-profile',middleware.authenticateToken,userProfileController.ge
 router.get('/user-profile/:id',middleware.authenticateToken,userProfileController.getUserProfile);
 router.put('/user-profile/:id', userProfileController.updateUserProfile);
 router.delete('/user-profile/:id', userProfileController.deleteUserProfile);
-router.get('/user-profile/get/:id',userProfileController.getUserProfileIdByEmpId);
+router.get('/user-profile/getbyempid/:id',userProfileController.getUserProfileIdByEmpId);
 
 //credentials
 router.post('/credentials',credentialsController.CreateCredentials);

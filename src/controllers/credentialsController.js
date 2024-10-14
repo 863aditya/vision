@@ -70,7 +70,7 @@ const Login = async (req,res)=>{
         let userProfileFromDb= await UserProfile.findOne({Email:Email});
         let role=userProfileFromDb.Role;
         let payLoad={Email,role};
-        const accessToken = jwt.sign(payLoad,process.env.ACCESS_TOKEN_SECRET, {expiresIn:'10m'});
+        const accessToken = jwt.sign(payLoad,process.env.ACCESS_TOKEN_SECRET, {expiresIn:'60m'});
         return res.status(200).json({accessToken:accessToken})
     }
     catch(err){
