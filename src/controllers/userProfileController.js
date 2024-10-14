@@ -69,7 +69,7 @@ exports.getUserProfileIdByEmpId = async(req,res) => {
         const userProfile =  await UserProfile.findOne({EmployeeObjectId:oid
         });
         if(!userProfile)return res.status(404).json({ message: 'UserProfile not found' });
-        res.status(200).json({id:userProfile._id});
+        res.status(200).json(userProfile);
     }
     catch (error) {
         res.status(500).json({ message: error.message });
