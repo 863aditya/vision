@@ -51,9 +51,33 @@ exports.getEmployeeDetails = async (req, res) => {
 // Update
 exports.updateEmployeeDetails = async (req, res) => {
     try {
-        const employee = await EmployeeDetails.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const employee = new EmployeeDetails({
+            // NameOfEmployee: req.body.NameOfEmployee,
+            FirstName: req.body.FirstName,
+            LastName: req.body.LastName,
+            FathersName: req.body.FathersName,
+            FathersContactDetails: req.body.FathersContactDetails,
+            SpouseName: req.body.SpouseName,
+            SpouseContactDetails: req.body.SpouseContactDetails,
+            DateOfBirth: req.body.DateOfBirth,
+            PresentAddress: req.body.PresentAddress,
+            PermanentAddress: req.body.PermanentAddress,
+            ContactDetails: req.body.ContactDetails,
+            AadhaarDetails: req.body.AadhaarDetails,
+            PanDetails: req.body.PanDetails,
+            DrivingLicenseNo: req.body.DrivingLicenseNo,
+            DlValidityUpto: req.body.DlValidityUpto,
+            DlScan: null,  // Store file buffer
+            DlScan2: null, // Store file buffer
+            BankAccountNo: req.body.BankAccountNo,
+            NameOfBankAndBranch: req.body.NameOfBankAndBranch,
+            IfscCode: req.body.IfscCode,
+            PfNo: req.body.PfNo,
+            EsiCode: req.body.EsiCode
+        });
+        const response = await EmployeeDetails.findByIdAndUpdate(req.params.id, employee, { new: true });
         if (!employee) return res.status(404).json({ message: 'Employee not found' });
-        res.status(200).json(employee);
+        res.status(200).json(response);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -73,8 +97,8 @@ exports.deleteEmployeeDetails = async (req, res) => {
 
 exports.getAllEmployeeDetails = async (req,res) => {
     try{
-        const employeeData= await  EmployeeDetails.find({});
-        res.status(200).json({employeeData});
+        const em= await  EmployeeDetails.find({});
+        res.status(200).json({em});
     }
     catch(err){
         res.status(400).json({message:err.message});
