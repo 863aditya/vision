@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const leadSchema = new mongoose.Schema({
+    CompanyReferenceNo:{
+        type:String,
+        required:true
+    },
     PublisinghAuthObjectId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'PublishingAuth', // Assuming there's a related model named 'PublishingAuth'
@@ -29,19 +33,15 @@ const leadSchema = new mongoose.Schema({
         required: true
     },
     LeadEmail: {
-        type: [String], // Array of strings for multiple emails
+        type: String, // Array of strings for multiple emails
         required: true
     },
     LeadPhoneNumber: {
-        type: [String], // Array of strings for multiple phone numbers
+        type: String, // Array of strings for multiple phone numbers
         required: true
     },
     TenderSource: {
         type: String,
-        required: true
-    },
-    FollowUpDate: {
-        type: Date,
         required: true
     }
 });

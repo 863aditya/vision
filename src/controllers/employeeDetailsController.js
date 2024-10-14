@@ -69,3 +69,14 @@ exports.deleteEmployeeDetails = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+exports.getAllEmployeeDetails = async (req,res) => {
+    try{
+        const employeeData= await  EmployeeDetails.find({});
+        res.status(200).json({employeeData});
+    }
+    catch(err){
+        res.status(400).json({message:err.message});
+    }
+};

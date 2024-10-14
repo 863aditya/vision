@@ -16,7 +16,7 @@ exports.getAllUserProfiles = async (req,res) =>{
     console.log("here in getallUserProfiles");
     try{
         
-        const response=await UserProfile.find({});
+        const response=await UserProfile.find();
         res.status(200).json(response);
     }
     catch(err){

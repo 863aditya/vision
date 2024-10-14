@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
 
 const publishingAuthSchema = new mongoose.Schema({
-    Nickname: {
+    name: {
         type: String,
         required: true
     },
-    Location: {
+    company:{
+        type:String,
+        required:true
+    },
+    location: {
         type: String,
         required: true
     },
-    Emails: {
-        type: [String], // Array of strings for multiple emails
-        required: true
-    },
-    PhoneNumbers: {
-        type: [String], // Array of strings for multiple phone numbers
-        required: true
+    contactDetails:{
+        type:String,
+        required:true
     }
 });
 

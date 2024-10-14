@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const itemDetailsSchema = new mongoose.Schema({
+    ItemSerialNo:{
+        type:String,
+        required:true
+    },
     ShortDesc: {
         type: String,
         required: true

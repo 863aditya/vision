@@ -32,6 +32,7 @@ router.post('/employee-details',  upload.fields([{ name: 'DlScan' }, { name: 'Dl
 router.get('/employee-details/:id', employeeDetailsController.getEmployeeDetails);
 router.put('/employee-details/:id', employeeDetailsController.updateEmployeeDetails);
 router.delete('/employee-details/:id', employeeDetailsController.deleteEmployeeDetails);
+router.get('/employee-detail',employeeDetailsController.getAllEmployeeDetails);
 
 // Vehicle Details routes
 router.post('/vehicle-details', vehicleDetailsController.createVehicleDetails);
