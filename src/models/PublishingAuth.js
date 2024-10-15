@@ -13,7 +13,11 @@ const publishingAuthSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    contactDetails:{
+    email:{
+        type:String,
+        required:true
+    },
+    phone:{
         type:String,
         required:true
     }

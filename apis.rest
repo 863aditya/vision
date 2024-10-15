@@ -44,3 +44,18 @@ GET http://localhost:3000/api/employee-detail
 
 ###
 GET http://localhost:3000/api/user-profile/getbyempid/66f99215dd30d16397e92bf3
+
+
+###
+GET http://localhost:3000/api/item-details
+
+###
+POST http://localhost:3000/api/item-details
+Content-Type: application/json
+
+{ 
+    "ItemSerialNo": "1",
+    "ShortDesc": "short", 
+    "LongDesc": "long", 
+    "Uom": "cm" 
+}
