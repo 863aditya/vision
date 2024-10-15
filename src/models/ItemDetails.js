@@ -13,10 +13,6 @@ const itemDetailsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Qty: {
-        type: Number,
-        required: true
-    },
     Uom: {
         type: String,
         required: true

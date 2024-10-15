@@ -43,4 +43,4 @@ GET http://localhost:3000/api/employee-detail
 
 
 ###
-GET http://localhost:3000/api/user-profile/get/66f99215dd30d16397e92bf3
+GET http://localhost:3000/api/user-profile/getbyempid/66f99215dd30d16397e92bf3
