@@ -42,6 +42,7 @@ router.delete('/vehicle-details/:id', vehicleDetailsController.deleteVehicleDeta
 
 // Item Details routes
 router.post('/item-details', itemDetailsController.createItemDetails);
+router.get('/item-details',itemDetailsController.getAllItemDetails);
 router.get('/item-details/:id', itemDetailsController.getItemDetails);
 router.put('/item-details/:id', itemDetailsController.updateItemDetails);
 router.delete('/item-details/:id', itemDetailsController.deleteItemDetails);

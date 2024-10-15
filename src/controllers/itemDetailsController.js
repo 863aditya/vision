@@ -43,3 +43,14 @@ exports.deleteItemDetails = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+exports.getAllItemDetails = async(req,res)=>{
+    try{
+        const reponse = await ItemDetails.find({});
+        return res.status(200).json(reponse);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
