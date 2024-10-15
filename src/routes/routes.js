@@ -55,6 +55,7 @@ router.delete('/items/:id', itemsController.deleteItem);
 
 // BOQ Details routes
 router.post('/boq-details', boqDetailsController.createBoqDetails);
+router.get('/boq-details',boqDetailsController.getAllBoqDetails);
 router.get('/boq-details/:id', boqDetailsController.getBoqDetails);
 router.put('/boq-details/:id', boqDetailsController.updateBoqDetails);
 router.delete('/boq-details/:id', boqDetailsController.deleteBoqDetails);

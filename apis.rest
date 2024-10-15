@@ -59,3 +59,23 @@ Content-Type: application/json
     "LongDesc": "long", 
     "Uom": "cm" 
 }
+
+
+###
+POST http://localhost:3000/api/boq-details 
+Content-Type: application/json
+
+{
+  "PublishingAuthId": "670e83ac5c947027ef8c588d",
+  "TenderNo": "TN-12345",
+  "BoqSerialNo": "BS-98765",
+  "ItemList": [
+    "670e816523304ab2ef645ecb",
+    "670e82731e1d40a823166eed"
+  ],
+  "ProductList": []
+}
+
+
+###
+GET http://localhost:3000/api/boq-details

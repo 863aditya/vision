@@ -1,3 +1,4 @@
+const { response } = require('express');
 const BoqDetails = require('../models/BoqDetails');
 
 // Create
@@ -39,6 +40,17 @@ exports.deleteBoqDetails = async (req, res) => {
         const boq = await BoqDetails.findByIdAndDelete(req.params.id);
         if (!boq) return res.status(404).json({ message: 'BOQ Details not found' });
         res.status(200).json({ message: 'BOQ Details deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+
+exports.getAllBoqDetails = async (req,res)=>{
+    try {
+        const reponse = await BoqDetails.find({});
+        res.status(200).json(reponse);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
