@@ -83,3 +83,6 @@ GET http://localhost:3000/api/boq-details
 
 ###
 GET http://localhost:3000/api/lead
+
+###
+GET http://localhost:3000/api/boq-details/670e86ba0a4721eb951e83ce

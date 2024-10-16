@@ -15,7 +15,7 @@ exports.createBoqDetails = async (req, res) => {
 // Read
 exports.getBoqDetails = async (req, res) => {
     try {
-        const boq = await BoqDetails.findById(req.params.id).populate('Items');
+        const boq = await BoqDetails.findOne({"_id":req.params.id});
         if (!boq) return res.status(404).json({ message: 'BOQ Details not found' });
         res.status(200).json(boq);
     } catch (error) {
