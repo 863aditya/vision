@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const PublishingAuth = require('./PublishingAuth');
 const itemExports= require('./ItemDetails');
 const itemDetailsSchema=itemExports.itemDetailsSchema;
-const productDetailScehma = require('../models/ProductDetails')
+const {productDetailScehma} = require('../models/ProductDetails')
 
 const singleItem = new mongoose.Schema({
     Item:{
