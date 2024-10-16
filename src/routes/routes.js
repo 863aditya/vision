@@ -49,11 +49,11 @@ router.put('/item-details/:id', itemDetailsController.updateItemDetails);
 router.delete('/item-details/:id', itemDetailsController.deleteItemDetails);
 
 // Product Details routes
-router.post('/product-details', productDetailsController.createproductDetails);
-router.get('/product-details',productDetailsController.getAllproductDetails);
-router.get('/product-details/:id', productDetailsController.getproductDetails);
-router.put('/product-details/:id', productDetailsController.updateproductDetails);
-router.delete('/product-details/:id', productDetailsController.deleteproductDetails);
+router.post('/product-details', productDetailsController.createProductDetail);
+router.get('/product-details',productDetailsController.getAllProductDetail);
+router.get('/product-details/:id', productDetailsController.getProductDetail);
+router.put('/product-details/:id', productDetailsController.updateProductDetail);
+router.delete('/product-details/:id', productDetailsController.deleteProductDetail);
 
 
 // BOQ Details routes
