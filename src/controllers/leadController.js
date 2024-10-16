@@ -43,3 +43,13 @@ exports.deleteLead = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+exports.getAllLead = async (req,res) => {
+    try {
+        const lead= await Lead.find({});
+        res.status(200).json(lead);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

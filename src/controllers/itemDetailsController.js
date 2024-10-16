@@ -1,4 +1,5 @@
-const ItemDetails = require('../models/ItemDetails');
+const ItemDetail = require('../models/ItemDetails');
+const ItemDetails=ItemDetail.ItemDetails;
 
 // Create
 exports.createItemDetails = async (req, res) => {

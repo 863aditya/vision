@@ -1,5 +1,32 @@
 const mongoose = require('mongoose');
 const PublishingAuth = require('./PublishingAuth');
+const itemExports= require('./ItemDetails');
+const itemDetailsSchema=itemExports.itemDetailsSchema;
+
+const singleItem = new mongoose.Schema({
+    Item:{
+        type:itemDetailsSchema,
+        required:true
+    },
+    ReqQty: {
+        type: Number,
+        required: true
+    },
+    SorRate: {
+        type: Number,
+        required: true
+    },
+    SorAmount: {
+        type: Number,
+        required: true
+    }
+})
+
+const singleProduct = new mongoose.Schema(
+    {
+
+    }
+)
 
 const boqDetailsSchema = new mongoose.Schema({
     // LeadObjectId: {
@@ -25,7 +52,7 @@ const boqDetailsSchema = new mongoose.Schema({
         required:true
     },
     ItemList:{
-        type: [ mongoose.Schema.Types.ObjectId],
+        type: [ singleItem],
         required:true         
     },
     ProductList:{

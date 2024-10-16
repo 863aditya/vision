@@ -21,4 +21,4 @@ const itemDetailsSchema = new mongoose.Schema({
 
 const ItemDetails = mongoose.model('ItemDetails', itemDetailsSchema);
 
-module.exports = ItemDetails;
+module.exports = {ItemDetails,itemDetailsSchema};

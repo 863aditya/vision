@@ -10,6 +10,7 @@ const publishingAuthController = require('../controllers/publishingAuthControlle
 const leadController = require('../controllers/leadController');
 const userProfileController = require('../controllers/userProfileController');
 const credentialsController=require('../controllers/credentialsController');
+const productDetailsController = require('../controllers/productDetailsController');
 const middleware= require('../middlewares/auth')
 const multer = require('multer');
 
@@ -47,11 +48,13 @@ router.get('/item-details/:id', itemDetailsController.getItemDetails);
 router.put('/item-details/:id', itemDetailsController.updateItemDetails);
 router.delete('/item-details/:id', itemDetailsController.deleteItemDetails);
 
-// Items routes
-router.post('/items', itemsController.createItem);
-router.get('/items/:id', itemsController.getItem);
-router.put('/items/:id', itemsController.updateItem);
-router.delete('/items/:id', itemsController.deleteItem);
+// Product Details routes
+router.post('/product-details', productDetailsController.createproductDetails);
+router.get('/product-details',productDetailsController.getAllproductDetails);
+router.get('/product-details/:id', productDetailsController.getproductDetails);
+router.put('/product-details/:id', productDetailsController.updateproductDetails);
+router.delete('/product-details/:id', productDetailsController.deleteproductDetails);
+
 
 // BOQ Details routes
 router.post('/boq-details', boqDetailsController.createBoqDetails);
@@ -72,6 +75,7 @@ router.post('/lead', leadController.createLead);
 router.get('/lead/:id', leadController.getLead);
 router.put('/lead/:id', leadController.updateLead);
 router.delete('/lead/:id', leadController.deleteLead);
+router.get('/lead',leadController.getAllLead);
 
 // UserProfile routes
 router.post('/user-profile', userProfileController.createUserProfile);
