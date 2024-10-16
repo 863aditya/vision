@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const PublishingAuth = require('./PublishingAuth');
 const itemExports= require('./ItemDetails');
 const itemDetailsSchema=itemExports.itemDetailsSchema;
+const productDetailScehma = require('../models/ProductDetails')
 
 const singleItem = new mongoose.Schema({
     Item:{
@@ -22,23 +23,26 @@ const singleItem = new mongoose.Schema({
     }
 })
 
-const singleProduct = new mongoose.Schema(
-    {
-
+const singleProduct = new mongoose.Schema({
+    Product:{
+        type:productDetailScehma,
+        required:true 
+    },
+    ReqQty: {
+        type: Number,
+        required: true
+    },
+    SorRate: {
+        type: Number,
+        required: true
+    },
+    SorAmount: {
+        type: Number,
+        required: true
     }
-)
+})
 
 const boqDetailsSchema = new mongoose.Schema({
-    // LeadObjectId: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Lead', // Reference to the Lead model
-    //     required: true
-    // },
-    // Items: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Items', // Reference to the Items model
-    //     required: true
-    // }]
     PublishingAuthId:{
         type:mongoose.Schema.Types.ObjectId,
         required:true  
@@ -56,7 +60,7 @@ const boqDetailsSchema = new mongoose.Schema({
         required:true         
     },
     ProductList:{
-        type:[mongoose.Schema.Types.ObjectId],
+        type:[singleProduct],
         required:true
     }
 });
