@@ -11,6 +11,7 @@ const leadController = require('../controllers/leadController');
 const userProfileController = require('../controllers/userProfileController');
 const credentialsController=require('../controllers/credentialsController');
 const productDetailsController = require('../controllers/productDetailsController');
+const tenderSourceController = require('../controllers/tenderSourcesController');
 const middleware= require('../middlewares/auth')
 const multer = require('multer');
 
@@ -76,6 +77,14 @@ router.get('/lead/:id', leadController.getLead);
 router.put('/lead/:id', leadController.updateLead);
 router.delete('/lead/:id', leadController.deleteLead);
 router.get('/lead',leadController.getAllLead);
+
+
+// TenderSource routes
+router.post('/tender-source', tenderSourceController.createTenderSource);
+router.get('/tender-source/:id', tenderSourceController.getTenderSource);
+router.put('/tender-source/:id', tenderSourceController.updateTenderSource);
+router.delete('/tender-source/:id', tenderSourceController.deleteTenderSource);
+router.get('/tender-source',tenderSourceController.getAllTenderSource);
 
 // UserProfile routes
 router.post('/user-profile', userProfileController.createUserProfile);

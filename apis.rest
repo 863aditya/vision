@@ -86,3 +86,16 @@ GET http://localhost:3000/api/lead
 
 ###
 GET http://localhost:3000/api/boq-details/670e86ba0a4721eb951e83ce
+
+
+###
+GET http://localhost:3000/api/tender-source
+
+
+###
+POST http://localhost:3000/api/tender-source
+Content-Type: application/json
+
+{
+  "name":"yashwant"
+}
