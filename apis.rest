@@ -99,3 +99,46 @@ Content-Type: application/json
 {
   "name":"yashwant"
 }
+
+
+###
+GET http://localhost:3000/api/emd-details
+
+
+###
+POST http://localhost:3000/api/emd-details
+Content-Type: application/json
+
+{
+    "EmdType": "Bank Guarantee",
+    "EmdAmount": 50000,
+    "Date": "2024-10-15",
+    "Bank": "State Bank of India",
+    "ValidityRequired": 180,
+    "ScanCopyId": "abc123scan"
+}
+
+
+
+###
+POST http://localhost:3000/api/emd-types
+Content-Type: application/json
+
+{
+  "name": "Bank Guarantee"
+}
+
+###
+GET http://localhost:3000/api/emd-types
+
+
+###
+POST http://localhost:3000/api/banks
+Content-Type: application/json
+
+{
+    "name": "State Bank of India"
+}
+
+###
+GET http://localhost:3000/api/banks 

@@ -12,6 +12,9 @@ const userProfileController = require('../controllers/userProfileController');
 const credentialsController=require('../controllers/credentialsController');
 const productDetailsController = require('../controllers/productDetailsController');
 const tenderSourceController = require('../controllers/tenderSourcesController');
+const emdDetailsController = require('../controllers/emdDetailsController');
+const bankController = require('../controllers/bankController');
+const emdTypeController = require('../controllers/emdTypeController');
 const middleware= require('../middlewares/auth')
 const multer = require('multer');
 
@@ -93,6 +96,24 @@ router.get('/user-profile/:id',middleware.authenticateToken,userProfileControlle
 router.put('/user-profile/:id', userProfileController.updateUserProfile);
 router.delete('/user-profile/:id', userProfileController.deleteUserProfile);
 router.get('/user-profile/getbyempid/:id',userProfileController.getUserProfileIdByEmpId);
+
+
+//emdDetails
+router.post('/emd-details', emdDetailsController.createEmdDetail);
+router.get('/emd-details', emdDetailsController.getAllEmdDetails);
+router.get('/emd-details/:id', emdDetailsController.getEmdDetailById);
+router.put('/emd-details/:id', emdDetailsController.updateEmdDetailById);
+router.delete('/emd-details/:id', emdDetailsController.deleteEmdDetailById);
+router.get('/emd-details',emdDetailsController.getAllEmdDetails);
+
+
+//bank
+router.post('/banks', bankController.createBank);
+router.get('/banks', bankController.getAllBanks);
+
+//emd-types
+router.post('/emd-types', emdTypeController.createEmdType);
+router.get('/emd-types', emdTypeController.getAllEmdTypes);
 
 //credentials
 router.post('/credentials',credentialsController.CreateCredentials);

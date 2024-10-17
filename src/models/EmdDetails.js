@@ -5,7 +5,6 @@ const {EmdTypeEnum, BankEnum} = require('../constants/constant')
 const emdDetailsSchema = new mongoose.Schema({
     EmdType: {
         type: String,
-        enum: EmdTypeEnum, // Replace with actual enum values
         required: true
     },
     EmdAmount: {
@@ -18,15 +17,14 @@ const emdDetailsSchema = new mongoose.Schema({
     },
     Bank: {
         type: String,
-        enum: BankEnum, // Replace with actual enum values
         required: true
     },
     ValidityRequired: {
         type: Number,
         required: true
     },
-    ScanCopy: {
-        type: Buffer, // Typically used for storing file data
+    ScanCopyId: {
+        type: String, // Typically used for storing file data
         required: true
     }
 });
