@@ -1,6 +1,27 @@
 const mongoose = require('mongoose');
-const itemExports = require('../models/ItemDetails')
-const itemDetailsSchema=itemExports.itemDetailsSchema;
+
+const itemDetailsSchema = new mongoose.Schema({
+    ItemSerialNo:{
+        type:String,
+        required:true
+    },
+    ShortDesc: {
+        type: String,
+        required: true
+    },
+    LongDesc: {
+        type: String,
+        required: true
+    },
+    Uom: {
+        type: String,
+        required: true
+    },
+    Quantity :{
+        type: String,
+        required:true
+    }
+});
 const productDetailScehma = new mongoose.Schema({
     productName:{
         type:String,
