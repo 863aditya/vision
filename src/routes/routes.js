@@ -4,7 +4,6 @@ const { createUser, getAllUsers } = require('../controllers/userController');
 const employeeDetailsController = require('../controllers/employeeDetailsController');
 const vehicleDetailsController = require('../controllers/vehicleDetailsController');
 const itemDetailsController = require('../controllers/itemDetailsController');
-const itemsController = require('../controllers/itemsController');
 const boqDetailsController = require('../controllers/boqDetailsController');
 const publishingAuthController = require('../controllers/publishingAuthController');
 const leadController = require('../controllers/leadController');
