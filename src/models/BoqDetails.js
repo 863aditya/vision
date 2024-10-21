@@ -5,8 +5,8 @@ const itemDetailsSchema=itemExports.itemDetailsSchema;
 const {productDetailScehma} = require('../models/ProductDetails')
 
 const singleItem = new mongoose.Schema({
-    Item:{
-        type:itemDetailsSchema,
+    ItemObjectId:{
+        type:mongoose.Schema.Types.ObjectId,
         required:true
     },
     ReqQty: {
@@ -25,7 +25,7 @@ const singleItem = new mongoose.Schema({
 
 const singleProduct = new mongoose.Schema({
     Product:{
-        type:productDetailScehma,
+        type:mongoose.Schema.Types.ObjectId,
         required:true 
     },
     ReqQty: {

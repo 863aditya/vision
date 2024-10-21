@@ -33,11 +33,11 @@ const leadSchema = new mongoose.Schema({
         required: true
     },
     LeadEmail: {
-        type: String, // Array of strings for multiple emails
+        type: [String], // Array of strings for multiple emails
         required: true
     },
     LeadPhoneNumber: {
-        type: String, // Array of strings for multiple phone numbers
+        type: [String], // Array of strings for multiple phone numbers
         required: true
     },
     TenderSource: {

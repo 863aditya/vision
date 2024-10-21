@@ -1,21 +1,9 @@
 const mongoose = require('mongoose');
 
 const itemDetailsSchema = new mongoose.Schema({
-    ItemSerialNo:{
-        type:String,
+    ItemObjectId:{
+        type:mongoose.Schema.Types.ObjectId,
         required:true
-    },
-    ShortDesc: {
-        type: String,
-        required: true
-    },
-    LongDesc: {
-        type: String,
-        required: true
-    },
-    Uom: {
-        type: String,
-        required: true
     },
     Quantity :{
         type: String,

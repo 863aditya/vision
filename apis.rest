@@ -33,7 +33,7 @@ GET http://localhost:3000/api/publishing-auth
 
 ###
 GET http://localhost:3000/api/user-profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiQm9hcmQgTWVtYmVyIiwiaWF0IjoxNzI3NjMxNDcwLCJleHAiOjE3Mjc2MzIwNzB9.ZdueOQMk8F6Zi9Ne-SmjwRUP78M5o4jUQ923HJ5y4C0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiYm9hcmRNZW1iZXIiLCpYXQiOjE3MjkzNDQ0MTAsImV4cCI6MTcyOTM0ODAxMH0.e7m3Y1JA4sjPhMvpbAoZPPNy8toyZXG72PNqULRzH2k
 
 
 
@@ -106,6 +106,10 @@ GET http://localhost:3000/api/emd-details
 
 
 ###
+GET http://localhost:3000/api/emd-details/67139700ad09053f58022ba2
+
+
+###
 POST http://localhost:3000/api/emd-details
 Content-Type: application/json
 
@@ -137,8 +141,14 @@ POST http://localhost:3000/api/banks
 Content-Type: application/json
 
 {
-    "name": "State Bank of India"
+    "name": "Union Bank"
 }
 
 ###
 GET http://localhost:3000/api/banks 
+
+
+####
+
+
+### frontend req->backend req->response ->> frontend render
