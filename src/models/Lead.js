@@ -10,6 +10,14 @@ const leadSchema = new mongoose.Schema({
         ref: 'PublishingAuth', // Assuming there's a related model named 'PublishingAuth'
         required: true
     },
+    TenderName:{
+        type:String,
+        required:true 
+    },
+    TenderDescription:{
+        type:String,
+        required:true
+    },
     TenderNo: {
         type: String,
         unique: true,
