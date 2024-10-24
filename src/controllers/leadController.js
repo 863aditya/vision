@@ -53,3 +53,13 @@ exports.getAllLead = async (req,res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+exports.getAllTenderByPublishingAuthId = async (req,res)=>{
+    try {
+        const tenders= await Lead.find({"PublisinghAuthObjectId":req.params.id});
+        return res.status(200).json(tenders);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

@@ -79,6 +79,7 @@ router.get('/lead/:id', leadController.getLead);
 router.put('/lead/:id', leadController.updateLead);
 router.delete('/lead/:id', leadController.deleteLead);
 router.get('/lead',leadController.getAllLead);
+router.get('/lead/getbypublishingauthid/:id',leadController.getAllTenderByPublishingAuthId);
 
 
 // TenderSource routes
@@ -87,6 +88,7 @@ router.get('/tender-source/:id', tenderSourceController.getTenderSource);
 router.put('/tender-source/:id', tenderSourceController.updateTenderSource);
 router.delete('/tender-source/:id', tenderSourceController.deleteTenderSource);
 router.get('/tender-source',tenderSourceController.getAllTenderSource);
+
 
 // UserProfile routes
 router.post('/user-profile', userProfileController.createUserProfile);

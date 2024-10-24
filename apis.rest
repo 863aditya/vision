@@ -150,6 +150,9 @@ GET http://localhost:3000/api/banks
 
 ####
 GET http://localhost:3000/api/verify-token
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiYm9hcmRNZW1iZXIiLCJpYXQiOjE3Mjk3NjcxODIsImV4cCI6MTcyOTc3MDc4Mn0.OJZ-NsYmWl4dhZ2PnYXSWZyuBM0yaUTdPb8bysBYGks
+Authorization: Bearer eyJhbGciOiJIUzINiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiYm9hcmRNZW1iZXIiLCJpYXQiOjE3Mjk3NjcxODIsImV4cCI6MTcyOTc3MDc4Mn0.OJZ-NsYmWl4dhZ2PnYXSWZyuBM0yaUTdPb8bysBYGks
 
+
+###
+GET http://localhost:3000/api/lead/getbypublishingauthid/6713a36f2bf784285f4b72d3
 ### frontend req->backend req->response ->> frontend render
