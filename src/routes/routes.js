@@ -117,6 +117,8 @@ router.get('/emd-types', emdTypeController.getAllEmdTypes);
 //credentials
 router.post('/credentials',credentialsController.CreateCredentials);
 router.post('/login',credentialsController.Login)
+router.get('/verify-token',credentialsController.VerifyToken);
+
 
 module.exports = router;
 

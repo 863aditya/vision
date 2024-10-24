@@ -149,6 +149,7 @@ GET http://localhost:3000/api/banks
 
 
 ####
-
+GET http://localhost:3000/api/verify-token
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJyb2xlIjoiYm9hcmRNZW1iZXIiLCJpYXQiOjE3Mjk3NjcxODIsImV4cCI6MTcyOTc3MDc4Mn0.OJZ-NsYmWl4dhZ2PnYXSWZyuBM0yaUTdPb8bysBYGks
 
 ### frontend req->backend req->response ->> frontend render
