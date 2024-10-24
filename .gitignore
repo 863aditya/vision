@@ -73,3 +73,6 @@ debug/
 # TypeScript
 dist/
 *.tsbuildinfo
+
+
+*.pem

@@ -1,5 +1,5 @@
 const express = require('express')
-const { CreateProfile, GetAllProfiles, GetOneProfile, Login, authenticateToken} = require('../controllers/profileController')
+// const { CreateProfile, GetAllProfiles, GetOneProfile, Login, authenticateToken} = require('../controllers/profileController')
 const { createUser, getAllUsers } = require('../controllers/userController');
 const employeeDetailsController = require('../controllers/employeeDetailsController');
 const vehicleDetailsController = require('../controllers/vehicleDetailsController');
@@ -21,15 +21,15 @@ const router = express.Router();
 const storage = multer.memoryStorage(); // Store files in memory
 const upload = multer({ storage: storage });
 
-router.post('/profile',CreateProfile); 
-router.get('/profile',GetAllProfiles);
-router.get('/profile/:email',GetOneProfile);
-// router.post('/login',Login);
-// Route for creating a new user
-router.post('/users', createUser);
+// router.post('/profile',CreateProfile); 
+// router.get('/profile',GetAllProfiles);
+// router.get('/profile/:email',GetOneProfile);
+// // router.post('/login',Login);
+// // Route for creating a new user
+// router.post('/users', createUser);
 
-// Route for getting all users
-router.get('/users', getAllUsers);
+// // Route for getting all users
+// router.get('/users', getAllUsers);
 
 // Employee Details routes
 router.post('/employee-details',  upload.fields([{ name: 'DlScan' }, { name: 'DlScan2' }]), employeeDetailsController.createEmployeeDetails);
