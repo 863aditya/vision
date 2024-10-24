@@ -80,18 +80,23 @@ const Login = async (req,res)=>{
 
 
 
-const VerifyToken = async (req,res)=>{
-    const authHeader=req.headers['authorization'];
-    const token= authHeader && authHeader.split(' ')[1];
-    if(token==null){
-        res.status(400).json({"message":"no token found"});
+const VerifyToken = async (req, res) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    if (token == null) {
+        return res.status(400).json({ "message": "no token found" });
     }
-    else{
-        jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,payloadJwt)=>{
-            if(err)return res.status(403).json({message:err.message});
-            else res.status(200).json(payloadJwt);
-        })
-    }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payloadJwt) => {
+        if (err) {
+            return res.status(403).json({ message: err.message });  // Handle token verification error
+        }
+
+        // If the token is valid, return the payload
+        return res.status(200).json(payloadJwt);
+    });
 };
+
 
 module.exports = {CreateCredentials,Login,VerifyToken}
