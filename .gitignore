@@ -77,3 +77,4 @@ dist/
 
 *.pem
 *.env
+.env
